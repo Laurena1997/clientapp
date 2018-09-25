@@ -17,7 +17,6 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 public class PersonRepository extends AbstractRepository<Person, Integer> {
 
     public static final String TABLE_NAME = "client_person";
@@ -28,10 +27,10 @@ public class PersonRepository extends AbstractRepository<Person, Integer> {
     public PersonRepository() {
         super(TABLE_NAME, KEY);
     }
-    
+
     //use this to test the db
-    protected PersonRepository(String url){
-        super(TABLE_NAME,KEY,url);
+    protected PersonRepository(String url) {
+        super(TABLE_NAME, KEY, url);
     }
 
     @Override
@@ -51,12 +50,12 @@ public class PersonRepository extends AbstractRepository<Person, Integer> {
     //TODO implement
     @Override
     public String getColumnString() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (KEY + NAME + FIRST_NAME);
     }
 
     //TODO implement
     @Override
     public String getValuesString(Person c) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "(" + c.getFirstName() + c.getName() + c.getNumber() + "')";
     }
 }
