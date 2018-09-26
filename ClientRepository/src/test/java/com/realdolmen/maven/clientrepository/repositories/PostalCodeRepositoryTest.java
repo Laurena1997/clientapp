@@ -71,12 +71,12 @@ public class PostalCodeRepositoryTest {
     }
 
     private void delete() throws NoQueryPossibleException {
-        assertNotNull(postalCodeRepository.deleteItem(8000));
+        assertNotNull(postalCodeRepository.deleteItem(9999));
     }
 
     private void insert() throws NoQueryPossibleException {
         PostalCode postalCode = new PostalCode();
-        postalCode.setNumber(8000);
+        postalCode.setNumber(9999);
         postalCode.setCity("A New City");
         assertNotNull(postalCodeRepository.insertItem(postalCode));
     }

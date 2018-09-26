@@ -27,7 +27,7 @@ public class FirmService {
     }
 
     public Firm insertFirm(Firm firm) throws NoQueryPossibleException {
-        return firmRepository.insertItem(firm);
+        int i=  firmRepository.insertItem(firm);
+        return findById(i);
     }
-
 }

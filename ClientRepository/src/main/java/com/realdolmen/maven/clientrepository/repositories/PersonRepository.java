@@ -57,5 +57,4 @@ public class PersonRepository extends AbstractRepository<Person, Integer> {
     public String getValuesString(Person c) {
         return "('"  + c.getNumber() + "','" + c.getName() + "', '"+ c.getFirstName() + "')";
     }
-
 }
