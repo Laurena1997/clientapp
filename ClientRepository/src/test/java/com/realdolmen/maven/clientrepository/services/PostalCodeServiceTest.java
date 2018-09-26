@@ -12,6 +12,8 @@ import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 import com.realdolmen.maven.clientrepository.repositories.PostalCodeRepository;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.Before;
 import org.mockito.Mock;
 import static org.mockito.Mockito.*;
@@ -43,18 +45,62 @@ public class PostalCodeServiceTest {
     public void testAddPostalCode() {
     }
 
+    
+    //@author Brent
     /**
      * Test of findAllPostalCodes method, of class PostalCodeService.
      */
     @Test
-    public void testFindAllPostalCodes() throws Exception {
+    public void testFindAllPostalCodes() throws NoQueryPossibleException
+    {
+        //init data
+        List<PostalCode>postalCodes = new ArrayList<>();
+        when(postalCodeRepository.findAll()).thenReturn(postalCodes);
+        
+        //do the acutal test
+        List<PostalCode>result = postalCodeService.findAllPostalCodes();
+        
+        //verify the result
+        assertEquals(postalCodes, result);
+        verify(postalCodeRepository, times(1)).findAll();
+        
+    }
+    
+    //@Author Laurena
+    private void createPostal(List<PostalCode> listToCreate)
+    {
+        for(int i = 7; i<10; i++)
+        {
+            PostalCode postalCode = new PostalCode();
+            postalCode.setNumber(i *1000);
+            listToCreate.add(postalCode);
+        }
     }
 
+    //@author Laurena
     /**
      * Test of findAllPostalCodesFromTheNine method, of class PostalCodeService.
      */
     @Test
-    public void testFindAllPostalCodesFromTheNine() throws Exception {
+    public void testFindAllPostalCodesFromTheNine() throws NoQueryPossibleException{
+        //init test data
+        List<PostalCode> postalCodes = new ArrayList<>();
+        //@author Joren
+        PostalCode postC = new PostalCode();
+        postC.setNumber(9000);
+        postalCodes.add(postC);
+        
+        //when(postalCodeService.findAllPostalCodesFromTheNine()).thenReturn(postalCodes);
+        when(postalCodeRepository.findAll()).thenReturn(postalCodes);
+        //do the actual test
+        List<PostalCode>result = postalCodeService.findAllPostalCodesFromTheNine();
+        //verify the result
+        System.out.println(result);
+        System.out.println(postalCodes);
+        assertEquals(postalCodes, result);
+        assertEquals(1, result.size());
+        assertEquals(9000,result.get(0).getNumber());
+        verify(postalCodeRepository, times(1)).findAll();
     }
 
     /**

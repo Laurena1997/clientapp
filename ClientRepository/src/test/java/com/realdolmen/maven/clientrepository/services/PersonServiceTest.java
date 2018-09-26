@@ -4,10 +4,11 @@ import com.realdolmen.maven.clientrepository.domain.Person;
 import com.realdolmen.maven.clientrepository.exceptions.NoQueryPossibleException;
 import com.realdolmen.maven.clientrepository.repositories.PersonRepository;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
+
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -43,7 +44,9 @@ public class PersonServiceTest {
     public void testFindById() throws Exception {
     }
     
+    //@author Laurena
     @Test
+    //probleem met nullpointerexception
     public void testInsertPerson() throws Exception
     {
         Person person = new Person("Laurena", "Nijs");
