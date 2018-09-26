@@ -39,7 +39,7 @@ public class PersonRepository extends AbstractRepository<Person, Integer> {
         try {
             person.setNumber(resultSet.getInt(KEY));
             person.setName(resultSet.getString(NAME));
-            person.setFirstName(FIRST_NAME);
+            person.setFirstName(resultSet.getString(FIRST_NAME));
             return person;
         } catch (SQLException ex) {
             Logger.getLogger(PersonRepository.class.getName()).log(Level.SEVERE, null, ex);
