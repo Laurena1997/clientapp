@@ -76,20 +76,20 @@ private static String URL = "jdbc:mysql://localhost:3306/clientdbtest?autoReconn
         verifyNoMoreInteractions(resultSet);
     }
 
-    @Ignore
+    @Test
     public void insertDeleteTest() throws NoQueryPossibleException {
         insert();
         delete();
     }
 
     private void delete() throws NoQueryPossibleException {
-        assertNotNull(personRepository.deleteItem(7999));
+        assertNotNull(personRepository.deleteItem(57));
       
     }
 
     private void insert() throws NoQueryPossibleException {
         Person person = new Person();
-        person.setNumber(99);
+        person.setNumber(57);
         person.setFirstName("Steven");
         person.setName("De Cock");
         
