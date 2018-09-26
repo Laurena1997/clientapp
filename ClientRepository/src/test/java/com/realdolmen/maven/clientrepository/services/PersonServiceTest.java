@@ -53,10 +53,32 @@ public class PersonServiceTest {
     /**
      * Test of findById method, of class PersonService.
      */
+    //@author Joren
     @Test
-    public void testFindById() throws Exception 
+    public void testFindByIdSuccess() throws Exception 
     {
+         //init data
         
+        Person p2 = new Person();
+        when(personRepository.findById(0)).thenReturn(p2);
+        //do the test
+        Person result = personService.findById(0);
+        //verify the result
+        assertEquals(result, p2);
+        verify(personRepository,times(1)).findById(0);
+    }
+    
+    @Test
+    public void testFindByIdFail() throws Exception
+    {
+        //init data 
+        Person p2 = new Person();
+        when(personRepository.findById(0)).thenReturn(null);
+        //do the test
+        Person result = personService.findById(0);
+        //verify the result
+        assertNotEquals(result, p2);
+        verify(personRepository,times(1)).findById(0);
     }
     
     //@author Jirka
