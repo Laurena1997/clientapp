@@ -58,7 +58,6 @@ public class PersonServiceTest {
     public void testFindByIdSuccess() throws Exception 
     {
          //init data
-        
         Person p2 = new Person();
         when(personRepository.findById(0)).thenReturn(p2);
         //do the test

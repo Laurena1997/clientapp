@@ -5,6 +5,7 @@
  */
 package com.realdolmen.maven.clientrepository.services;
 
+import com.realdolmen.maven.clientrepository.domain.Person;
 import com.realdolmen.maven.clientrepository.domain.PostalCode;
 import com.realdolmen.maven.clientrepository.exceptions.NoQueryPossibleException;
 import org.junit.Test;
@@ -102,13 +103,38 @@ public class PostalCodeServiceTest {
         assertEquals(9000,result.get(0).getNumber());
         verify(postalCodeRepository, times(1)).findAll();
     }
-
+    
+    //@author Brent
     /**
      * Test of findById method, of class PostalCodeService.
      */
     @Test
-    public void testFindById() throws Exception {
+    public void testFindByIdPostalCodeSuccess() throws Exception 
+    {
+         //init data
+        PostalCode postalcode = new PostalCode();
+        when(postalCodeRepository.findById(0)).thenReturn(postalcode);
+        //do the test
+        PostalCode result = postalCodeService.findById(0);
+        //verify the result
+        assertEquals(result, postalcode);
+        verify(postalCodeRepository,times(1)).findById(0);
     }
+    
+    //@ author Jirka
+    @Test
+    public void testFindByIdPostalCodeFail() throws Exception
+    {
+          //init data 
+        PostalCode postalcode = new PostalCode();
+        when(postalCodeRepository.findById(0)).thenReturn(null);
+        //do the test
+        PostalCode result = postalCodeService.findById(0);
+        //verify the result
+        assertNotEquals(result, postalcode);
+        verify(postalCodeRepository,times(1)).findById(0);
+    }
+    
     
     @Test
     public void testRemovePostalCode() throws NoQueryPossibleException {
