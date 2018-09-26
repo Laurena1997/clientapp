@@ -1,6 +1,7 @@
 package com.realdolmen.maven.clientrepository.services;
 
 import com.realdolmen.maven.clientrepository.domain.Address;
+import com.realdolmen.maven.clientrepository.domain.Firm;
 import com.realdolmen.maven.clientrepository.domain.Person;
 import com.realdolmen.maven.clientrepository.exceptions.NoQueryPossibleException;
 import com.realdolmen.maven.clientrepository.repositories.PersonRepository;
@@ -31,19 +32,31 @@ public class PersonServiceTest {
     public void init() {
         personService = new PersonService(personRepository);
     }
-
+    
+    //@author Laurena
     /**
      * Test of findAll method, of class PersonService.
      */
     @Test
-    public void testFindAll() throws Exception {
+    public void testFindAll() throws Exception 
+    {
+        //init data
+        List<Person> person = new ArrayList<>();
+        when(personRepository.findAll()).thenReturn(person);
+        //do the test
+        List<Person> result = personService.findAll();
+        //verify the result
+        assertEquals(result, person);
+        verify(personRepository,times(1)).findAll();
     }
 
     /**
      * Test of findById method, of class PersonService.
      */
     @Test
-    public void testFindById() throws Exception {
+    public void testFindById() throws Exception 
+    {
+        
     }
     
     //@author Jirka
@@ -51,7 +64,7 @@ public class PersonServiceTest {
      public void testInsertPerson() throws NoQueryPossibleException
     {
         Address address = new Address();
-        Person person = new Person("Laurena", "Nijs");
+        Person person = new Person("Jirka", "Ruzicka");
         List<Address> addressess = new ArrayList<>();
        addressess.add(address);
        
