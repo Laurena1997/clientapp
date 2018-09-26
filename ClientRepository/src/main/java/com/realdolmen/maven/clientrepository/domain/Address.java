@@ -11,6 +11,7 @@ public class Address {
     
     public Address() {
     }
+    
 
     public Klant getKlant() {
         return klant;
