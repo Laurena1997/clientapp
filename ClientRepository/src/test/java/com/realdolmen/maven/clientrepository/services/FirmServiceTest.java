@@ -1,5 +1,6 @@
 package com.realdolmen.maven.clientrepository.services;
 
+import com.realdolmen.maven.clientrepository.domain.Address;
 import com.realdolmen.maven.clientrepository.domain.Firm;
 import com.realdolmen.maven.clientrepository.domain.Person;
 import com.realdolmen.maven.clientrepository.exceptions.NoQueryPossibleException;
@@ -71,10 +72,46 @@ public class FirmServiceTest {
     }
     
 
-    
+    //@author Joren
     @Test
-    public void insertFirmTestSuccess() throws Exception {
+    public void insertFirmTestSuccess() throws Exception 
+    {
+         Address address = new Address();
+        Firm firm = new Firm();
+        List<Address> addressess = new ArrayList<>();
+        addressess.add(address);
+       
+        firm.setNumber(1);
+        firm.setAddress((ArrayList<Address>) addressess);
+        when(firmRepository.insertItem(firm)).thenReturn(1);
+        when(firmRepository.findById(1)).thenReturn(firm);
+        
+       
+        firmService.insertFirm(firm);
+        verify(firmRepository, times(1)).insertItem(firm);
     }
+    
+    //@author Joren
+    @Test
+    public void insertFirmTestFail() throws Exception
+    {
+         Address address = new Address();
+        Firm firm = new Firm();
+        List<Address> addressess = new ArrayList<>();
+        addressess.add(address);
+       
+        firm.setNumber(1);
+        firm.setAddress((ArrayList<Address>) addressess);
+        when(firmRepository.insertItem(firm)).thenReturn(1);
+        when(firmRepository.findById(1)).thenReturn(null);
+        
+       
+        firmService.insertFirm(firm);
+        verify(firmRepository, times(1)).insertItem(firm);
+    }
+    
+    
+    
 
     @Test
     public void testRemovePerson() throws NoQueryPossibleException {
