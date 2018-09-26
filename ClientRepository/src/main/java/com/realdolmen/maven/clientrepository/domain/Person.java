@@ -6,8 +6,16 @@ public class Person extends Klant{
     private String firstName;
     private String name;
 
+   
+
+    public Person(String firstName, String name) {
+        this.firstName = firstName;
+        this.name = name;
+    }
+
     public Person() {
     }
+    
 
     @Override
     public void hello() {

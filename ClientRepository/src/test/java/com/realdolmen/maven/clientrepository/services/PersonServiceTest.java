@@ -42,7 +42,15 @@ public class PersonServiceTest {
     @Test
     public void testFindById() throws Exception {
     }
-   
+    
+    @Test
+    public void testInsertPerson() throws Exception
+    {
+        Person person = new Person("Laurena", "Nijs");
+        person.setNumber(1);
+        personService.insertPerson(person);
+        verify(personRepository, times(1)).insertItem(person);
+    }
 
     
     @Test
