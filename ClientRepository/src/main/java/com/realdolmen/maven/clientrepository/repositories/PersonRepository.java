@@ -35,27 +35,27 @@ public class PersonRepository extends AbstractRepository<Person, Integer> {
 
     @Override
     public Person createObject(ResultSet resultSet) {
-        Person person = new Person();
         try {
+            Person person = new Person();
             person.setNumber(resultSet.getInt(KEY));
             person.setName(resultSet.getString(NAME));
             person.setFirstName(resultSet.getString(FIRST_NAME));
             return person;
         } catch (SQLException ex) {
-            Logger.getLogger(PersonRepository.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
+            return null;
         }
-        return person;
     }
 
-    //TODO implement
     @Override
     public String getColumnString() {
-        return (KEY + NAME + FIRST_NAME);
+        return "(" + KEY + "," + NAME + "," + FIRST_NAME + ")";
     }
 
     //TODO implement
     @Override
     public String getValuesString(Person c) {
-        return "(" + c.getFirstName() + c.getName() + c.getNumber() + "')";
+        return "('" + c.getFirstName() + "','" + c.getName() + "', '" + c.getNumber() + "')";
     }
+
 }

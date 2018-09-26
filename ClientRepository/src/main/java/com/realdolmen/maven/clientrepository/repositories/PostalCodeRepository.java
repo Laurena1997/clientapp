@@ -35,6 +35,7 @@ public class PostalCodeRepository extends AbstractRepository<PostalCode, Integer
         return null;
     }
 
+
     //TODO implement
     @Override
     public String getColumnString() {
@@ -44,7 +45,7 @@ public class PostalCodeRepository extends AbstractRepository<PostalCode, Integer
     //TODO implement
     @Override
     public String getValuesString(PostalCode postalCode) {
-        return "("+postalCode.getNumber()+",'"+postalCode.getCity()+"')";
+        return "('"+postalCode.getNumber()+"','"+postalCode.getCity()+"')";
     }
 
 }

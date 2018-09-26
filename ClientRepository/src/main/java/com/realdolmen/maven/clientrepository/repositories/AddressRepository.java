@@ -42,7 +42,7 @@ public class AddressRepository extends AbstractRepository<Address, Integer> {
     }
 
     //TODO implement
-    @Override
+       @Override
     public String getColumnString() {
         return "(" + TYPEADDRESS + "," + KEY + ", box, " + POSTALCODE + ", client_person  ,client_firm )";
     }
@@ -52,12 +52,12 @@ public class AddressRepository extends AbstractRepository<Address, Integer> {
     public String getValuesString(Address c) {
         if (c.getKlant() instanceof Person) {
             //insert into (type, number, box, postalCode, client person, clientfirm) into adress values ('home', 'straat', 1, null, 9000,  1, null)
-            return "(" + c.getTypeAddress() + ", " + c.getNumber() + "," + null + ", " + c.getPostalCode() + c.getKlant().getNumber() + "," + null + ")";
+            return "('" + c.getTypeAddress() + "',' " + c.getNumber() + "','" + null + "', '" + c.getPostalCode() + "','"+ c.getKlant().getNumber() + "','" + null + "')";
 
         }
         if (c.getKlant() instanceof Firm) {
             //insert into (type,, number, box, postalCode, client person, clientfirm) into adress values ('home', 'straat', 1, null, 9000,  null, 2)
-            return "(" + c.getTypeAddress() + ", " + c.getNumber() + "," + null + ", " + c.getPostalCode() + null + "," + c.getKlant().getNumber() + ")";
+            return "('" + c.getTypeAddress() + "', '" + c.getNumber() + "','" + null + "', '" + c.getPostalCode() + "','" + null + "','" + c.getKlant().getNumber() + "')";
             //box is altijd null
         }
         throw new IllegalArgumentException();

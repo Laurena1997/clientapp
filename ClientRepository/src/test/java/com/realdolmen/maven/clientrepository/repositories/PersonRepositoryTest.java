@@ -18,6 +18,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 import static org.junit.Assert.*;
+import org.junit.Ignore;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PersonRepositoryTest {
@@ -75,7 +76,7 @@ private static String URL = "jdbc:mysql://localhost:3306/clientdbtest?autoReconn
         verifyNoMoreInteractions(resultSet);
     }
 
-    @Test
+    @Ignore
     public void insertDeleteTest() throws NoQueryPossibleException {
         insert();
         delete();
