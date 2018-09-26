@@ -82,7 +82,7 @@ private static String URL = "jdbc:mysql://localhost:3306/clientdbtest?autoReconn
     }
 
     private void delete() throws NoQueryPossibleException {
-        assertNotNull(personRepository.deleteItem(8000));
+        assertNotNull(personRepository.deleteItem(7999));
       
     }
 
