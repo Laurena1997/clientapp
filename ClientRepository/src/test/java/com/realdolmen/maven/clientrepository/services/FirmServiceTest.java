@@ -1,6 +1,7 @@
 package com.realdolmen.maven.clientrepository.services;
 
 import com.realdolmen.maven.clientrepository.domain.Firm;
+import com.realdolmen.maven.clientrepository.domain.Person;
 import com.realdolmen.maven.clientrepository.exceptions.NoQueryPossibleException;
 import com.realdolmen.maven.clientrepository.repositories.FirmRepository;
 import java.util.ArrayList;
@@ -40,12 +41,37 @@ public class FirmServiceTest {
         assertEquals(result, firms);
         verify(firmRepository,times(1)).findAll();
     }
-
+    
+    //@ author Laurena
     @Test
-    public void testFindById() throws Exception {
+    public void testFindByIdFirmSuccess() throws Exception 
+    {
+        //init data
+        Firm firm1 = new Firm ();
+        when(firmRepository.findById(0)).thenReturn(firm1);
+        //do the test
+        Firm result = firmService.findById(0);
+        //verify the result
+        assertEquals(result, firm1);
+        verify(firmRepository,times(1)).findById(0);
     }
+    
+    //@ author Laurena
+    @Test
+    public void testFindByIdFirmFail() throws Exception
+    {
+         //init data
+        Firm firm1 = new Firm ();
+        when(firmRepository.findById(0)).thenReturn(null);
+        //do the test
+        Firm result = firmService.findById(0);
+        //verify the result
+        assertNotEquals(result, firm1);
+        verify(firmRepository,times(1)).findById(0);
+    }
+    
 
-    @Ignore
+    
     @Test
     public void insertFirmTestSuccess() throws Exception {
     }
