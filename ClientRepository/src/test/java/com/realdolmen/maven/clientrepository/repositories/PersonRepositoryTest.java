@@ -60,7 +60,7 @@ private static String URL = "jdbc:mysql://localhost:3306/clientdbtest?autoReconn
         assertEquals("name", result.getName());
         verify(resultSet, times(1)).getInt(PersonRepository.KEY);
         verify(resultSet, times(1)).getString(PersonRepository.FIRST_NAME);
-         verify(resultSet, times(1)).getString(PersonRepository.NAME);
+        verify(resultSet, times(1)).getString(PersonRepository.NAME);
     }
 
     @Test
