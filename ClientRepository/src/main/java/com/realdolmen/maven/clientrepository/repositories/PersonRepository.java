@@ -55,7 +55,7 @@ public class PersonRepository extends AbstractRepository<Person, Integer> {
     //TODO implement
     @Override
     public String getValuesString(Person c) {
-        return "('" + c.getFirstName() + "','" + c.getName() + "', '" + c.getNumber() + "')";
+        return "('"  + c.getNumber() + "','" + c.getName() + "', '"+ c.getFirstName() + "')";
     }
 
 }
