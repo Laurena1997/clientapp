@@ -46,7 +46,7 @@ public class PostalCodeService {
         return postalCodeRepository.deleteItem(postalCode.getNumber());
     }
 
-    public boolean updatePostalCode(PostalCode postalCode) {
+    public boolean updatePostalCode(PostalCode postalCode) throws NoQueryPossibleException {
         postalCodeRepository.updateItem(postalCode);
         return false;
     }

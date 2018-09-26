@@ -77,14 +77,14 @@ public abstract class AbstractRepository<C, T> {
         }
     }
 
-    public void updateItem(C item) {
+    public void updateItem(C item) throws NoQueryPossibleException {
         //try it when you are curious, or have the time
     }
 
     public C insertItem(C item) throws NoQueryPossibleException {
         //Only tested for postalcode
         try (Connection connection = createConnection()) {
-            String query = "INSERT INTO " + tableName + getColumnString()+" values " + getValuesString(item);
+            String query = "INSERT INTO " + tableName + getColumnString() + " values " + getValuesString(item);
             System.out.println(query);
             PreparedStatement pstatement = connection.prepareStatement(query);
             pstatement.executeUpdate();
@@ -99,7 +99,7 @@ public abstract class AbstractRepository<C, T> {
     public abstract C createObject(ResultSet resultSet);
 
     public abstract String getColumnString();
-    
+
     public abstract String getValuesString(C c);
 
     public String getUrl() {
