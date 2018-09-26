@@ -26,7 +26,8 @@ public class AddressService {
     //Insert Address
 
     public Address insertAddress(Address address) throws NoQueryPossibleException {
-        return addressRepository.insertItem(address);
+        int i = addressRepository.insertItem(address);
+        return findAddressById(i);
     }
 
     //address -> reporsirtoy.findbyid

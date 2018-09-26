@@ -43,7 +43,8 @@ public class PersonService {
         }
         Address address = person.getAddress().get(0);
         address.setKlant(person);
-        return personRepository.insertItem(person);
+        int i = personRepository.insertItem(person);
+        return findById(i);
     }
     
 }

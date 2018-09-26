@@ -34,24 +34,22 @@ private static String URL = "jdbc:mysql://localhost:3306/clientdbtest?autoReconn
     public void init() {
         personRepository = new PersonRepository();
     }
-    
+
     @Test
-    public void testFindAll() throws NoQueryPossibleException{
+    public void testFindAll() throws NoQueryPossibleException {
         PersonRepository personRepository = new PersonRepository();
         List<Person> persons = personRepository.findAll();
         assertFalse(persons.isEmpty());
     }
-    
+
     //TODO implement all tests
-     @Test
+    @Test
     public void createObjectTestSucces() throws SQLException, NoQueryPossibleException {
         //init data
-        when(resultSet.getInt(PersonRepository.KEY))
-                .thenReturn(1);
-        when(resultSet.getString(PersonRepository.FIRST_NAME))
-                .thenReturn("first_name");
+        when(resultSet.getInt(PersonRepository.KEY)).thenReturn(1);
+        when(resultSet.getString(PersonRepository.FIRST_NAME)).thenReturn("first_name");
         when(resultSet.getString(PersonRepository.NAME)).thenReturn("name");
-        
+
         //test the test object
         Person result = personRepository.createObject(resultSet);
         //verify the result
@@ -66,8 +64,7 @@ private static String URL = "jdbc:mysql://localhost:3306/clientdbtest?autoReconn
     @Test
     public void createObjectTestThrowsSQLException() throws SQLException {
         //init data
-        when(resultSet.getInt(PersonRepository.KEY))
-                .thenThrow(SQLException.class);
+        when(resultSet.getInt(PersonRepository.KEY)).thenThrow(SQLException.class);
         //test the object
         Person result = personRepository.createObject(resultSet);
         //verify the result
@@ -79,22 +76,18 @@ private static String URL = "jdbc:mysql://localhost:3306/clientdbtest?autoReconn
     @Test
     public void insertDeleteTest() throws NoQueryPossibleException {
         insert();
-        delete();
     }
 
-    private void delete() throws NoQueryPossibleException {
-        assertNotNull(personRepository.deleteItem(57));
-      
+    private void delete(int i) throws NoQueryPossibleException {
+        assertNotNull(personRepository.deleteItem(i));
     }
 
     private void insert() throws NoQueryPossibleException {
         Person person = new Person();
-        person.setNumber(57);
-        person.setFirstName("Steven");
-        person.setName("De Cock");
-        
-       
-        
-        assertNotNull(personRepository.insertItem(person));
+        person.setFirstName("firstName");
+        person.setName("name");
+        int i = personRepository.insertItem(person);
+        assertTrue(i>0);
+        delete(i);
     }
 }
