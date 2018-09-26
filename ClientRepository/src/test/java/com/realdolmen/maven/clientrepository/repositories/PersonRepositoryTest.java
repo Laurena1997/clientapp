@@ -88,9 +88,9 @@ private static String URL = "jdbc:mysql://localhost:3306/clientdbtest?autoReconn
 
     private void insert() throws NoQueryPossibleException {
         Person person = new Person();
-        person.setNumber(0);
-        person.setFirstName("firstName");
-        person.setName("name");
+        person.setNumber(99);
+        person.setFirstName("Steven");
+        person.setName("De Cock");
         
        
         
