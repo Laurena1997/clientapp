@@ -91,7 +91,6 @@ private static String URL = "jdbc:mysql://localhost:3306/clientdbtest?autoReconn
         person.setNumber(0);
         person.setFirstName("firstName");
         person.setName("name");
-        person.setNumber(0);
         
        
         

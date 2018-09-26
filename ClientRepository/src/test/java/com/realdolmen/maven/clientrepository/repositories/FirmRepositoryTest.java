@@ -23,14 +23,34 @@ public class FirmRepositoryTest{
         assertFalse(firmRepository.findAll().isEmpty());
     }
     
-    @Test
+   @Test
+    public void insertDeleteTest() throws NoQueryPossibleException {
+        insert();
+        delete();
+    }
+
+    private void delete() throws NoQueryPossibleException {
+        assertNotNull(firmRepository.deleteItem(8000));
+    }
+
+    private void insert() throws NoQueryPossibleException {
+        Firm firm = new Firm();
+        firm.setNumber(8000);
+        firm.setTaxNumber("1861");
+        firm.setField("FECK");
+        assertNotNull(firmRepository.insertItem(firm));
+        
+    }
+    
+    
+    /*@Test
     public void deleteItemTest() throws NoQueryPossibleException{
         firmRepository = new FirmRepository();
         firmRepository.deleteItem(1);
         List<Firm> firms = firmRepository.findAll();
         for(Firm f : firms){
             assertNotEquals(f.getNumber(),1);
-        }
+        }*/
     }
     
 //    private void insertFirm(){
@@ -40,4 +60,4 @@ public class FirmRepositoryTest{
 //        firmRepository.insertItem(firm);
 //    }
 //    
-}
+
