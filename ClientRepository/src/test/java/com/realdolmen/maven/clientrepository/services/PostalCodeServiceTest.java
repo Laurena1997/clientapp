@@ -148,11 +148,14 @@ public class PostalCodeServiceTest {
      * Test of updatePostalCode method, of class PostalCodeService.
      */
     @Test
-    public void testUpdatePostalCode() {
+    public void testUpdatePostalCode() 
+    {
+        
     }
     
     @Test
-    public void insertPostalCodeTest() throws Exception {
+    public void insertPostalCodeTest() throws Exception 
+    {
         
     }
 }
