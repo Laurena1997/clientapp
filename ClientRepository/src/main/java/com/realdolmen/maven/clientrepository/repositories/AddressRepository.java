@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 
 public class AddressRepository extends AbstractRepository<Address, Integer> {
 
-    //private static final String TABLE;
+    
     public static final String TABLE_NAME = "client_adress";
     public static final String KEY = "client_number";
     public static final String STREET = "street";
