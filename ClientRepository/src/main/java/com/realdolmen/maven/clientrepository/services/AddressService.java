@@ -54,9 +54,8 @@ public class AddressService {
         return addressRepository.findAddressForPersonId(id);
     }
 
-    public List<Address> findAddressForFirm(int id){
-        //find address for firm nog in repo maken
-        //return addressRepository.findAddressForFirm(id);
-        return null;
+    public List<Address> findAddressForFirm(int id) throws NoQueryPossibleException{
+        return addressRepository.findAddressForFirm(id);
+        
     }
 }

@@ -71,6 +71,16 @@ public class FirmServiceTest {
         verify(firmRepository,times(1)).findById(0);
     }
     
+    //@author Laurena
+    @Test
+    public void removeFirmTest() throws Exception
+    {
+        Firm firm = new Firm();
+        firm.setNumber(1);
+        firmService.removeFirm(firm);
+        verify(firmRepository, times(1)).deleteItem(firm.getNumber());
+    }
+    
     //@author Joren
     @Test
     public void insertFirmTestSuccess() throws Exception 
@@ -108,6 +118,10 @@ public class FirmServiceTest {
         firmService.insertFirm(firm);
         verify(firmRepository, times(1)).insertItem(firm);
     }
+    
+    
+    
+    
     
     @Test
     public void testRemovePerson() throws NoQueryPossibleException {
