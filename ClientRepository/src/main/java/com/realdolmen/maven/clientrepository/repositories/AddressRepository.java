@@ -85,9 +85,22 @@ public class AddressRepository extends AbstractRepository<Address, Integer> {
 ////        return object;
         return null;
     }
-
-
-    //findAddressForPersonId(int id)
-
-    //findAddressForFirmId(int id)
+    
+    public List<Address>findAddressForFirm(int id) throws NoQueryPossibleException
+    {
+        //        C object = null;
+////        try (Connection connection = createConnection()) {
+////            PreparedStatement pstatement = connection.prepareStatement("SELECT * FROM " + tableName + " WHERE " + idName + " = " + id);
+////            ResultSet resultSet = pstatement.executeQuery();
+////            if (resultSet.next()) {
+////                System.out.println("in resultset");
+////                object = createObject(resultSet);
+////            }
+////        } catch (Exception e) {
+////            throw new NoQueryPossibleException("Find by id " + tableName + " can not be excecuted");
+////        }
+////        return object;
+        return null;
+        
+    }
 }

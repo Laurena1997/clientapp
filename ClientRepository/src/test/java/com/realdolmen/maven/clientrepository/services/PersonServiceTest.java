@@ -108,8 +108,23 @@ public class PersonServiceTest {
         verify(personRepository, times(1)).deleteItem(person.getNumber());
     }
 
+    //@author Brent
     @Test
-    public void insertPersonTest() throws Exception {
+    public void insertPersonTest() throws Exception 
+    {
+        Address address = new Address();
+        Person person = new Person("Brent", "Schotte");
+        List<Address> addressess = new ArrayList<>();
+       addressess.add(address);
+       
+        person.setNumber(1);
+        person.setAddress((ArrayList<Address>) addressess);
+        when(personRepository.insertItem(person)).thenReturn(1);
+        when(personRepository.findById(1)).thenReturn(person);
+        
+       
+        personService.insertPerson(person);
+        verify(personRepository, times(1)).insertItem(person);
 
     }
 }

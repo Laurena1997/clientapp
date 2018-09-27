@@ -42,7 +42,7 @@ private static String URL = "jdbc:mysql://localhost:3306/clientdbtest?autoReconn
         assertFalse(persons.isEmpty());
     }
 
-    //TODO implement all tests
+   
     @Test
     public void createObjectTestSucces() throws SQLException, NoQueryPossibleException {
         //init data

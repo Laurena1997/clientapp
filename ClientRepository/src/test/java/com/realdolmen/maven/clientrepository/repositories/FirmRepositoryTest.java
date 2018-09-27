@@ -37,7 +37,7 @@ public class FirmRepositoryTest{
         Firm firm = new Firm();
         firm.setNumber(8000);
         firm.setTaxNumber("1861");
-        firm.setField("FECK");
+        firm.setField("nv");
         assertNotNull(firmRepository.insertItem(firm));
         
     }

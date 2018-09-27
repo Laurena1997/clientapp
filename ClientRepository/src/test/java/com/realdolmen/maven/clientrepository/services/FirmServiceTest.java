@@ -71,7 +71,6 @@ public class FirmServiceTest {
         verify(firmRepository,times(1)).findById(0);
     }
     
-
     //@author Joren
     @Test
     public void insertFirmTestSuccess() throws Exception 
@@ -110,9 +109,6 @@ public class FirmServiceTest {
         verify(firmRepository, times(1)).insertItem(firm);
     }
     
-    
-    
-
     @Test
     public void testRemovePerson() throws NoQueryPossibleException {
         Firm firm = new Firm();
