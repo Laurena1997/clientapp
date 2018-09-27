@@ -20,8 +20,14 @@ public class AddressService {
     public AddressService() {
     }
 
-    public AddressService(AddressRepository addressRepository) {
+    public AddressService(AddressRepository addressRepository,
+                          PostalCodeService postalCodeService,
+                          PersonService personService,
+                          FirmService firmService) {
         this.addressRepository = addressRepository;
+        this.firmService = firmService;
+        this.personService = personService;
+        this.postalCodeService = postalCodeService;
     }
     //Insert Address
 
@@ -36,8 +42,9 @@ public class AddressService {
     //address.setPostalCode(PostalCode)
     //return address  
     public Address findAddressById(int id) throws NoQueryPossibleException {
-        return addressRepository.findById(id);
-
+        Address address = addressRepository.findById(id);
+        address.setPostalCode(postalCodeService.findById(address.getPostalCode().getNumber()));
+        return address;
     }
     //findAllAddressForClientPerson(int id)
     //zoek een adres die van een bepaald persoon    
@@ -64,4 +71,8 @@ public class AddressService {
         return firmService.findById(id).getAddress();
 
     }
+
+    //findAddressesForPerson(int id)
+
+    //findAddressesForFirm(int id)
 }
