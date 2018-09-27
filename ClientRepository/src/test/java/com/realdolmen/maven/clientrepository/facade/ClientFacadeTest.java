@@ -6,6 +6,7 @@
 package com.realdolmen.maven.clientrepository.facade;
 
 import com.realdolmen.maven.clientrepository.domain.Klant;
+import com.realdolmen.maven.clientrepository.domain.Person;
 import com.realdolmen.maven.clientrepository.domain.PostalCode;
 import com.realdolmen.maven.clientrepository.repositories.PersonRepository;
 import org.junit.Test;
@@ -38,8 +39,7 @@ public class ClientFacadeTest {
     @Test
     public void testFindClientById() 
     {
-        
-        
+         
     }
     
 }

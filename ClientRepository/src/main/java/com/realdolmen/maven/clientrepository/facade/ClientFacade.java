@@ -23,7 +23,6 @@ public class ClientFacade {
 
     public ClientFacade() {
         this.postalCodeService = new PostalCodeService(new PostalCodeRepository());
-        //need implementation
         this.firmService = new FirmService(new FirmRepository());
         this.personService = new PersonService(new PersonRepository());
         this.addressService = new AddressService(new AddressRepository(),postalCodeService,personService,firmService);
@@ -77,12 +76,6 @@ public class ClientFacade {
         return addresses;
         
     }
-    //findAddressesForClient(Klant klant)
-    //is persoon of firma
-    //services
-
-
-    //
-    
+  
     
 }
