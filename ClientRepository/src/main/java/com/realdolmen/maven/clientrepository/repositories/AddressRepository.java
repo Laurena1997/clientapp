@@ -73,7 +73,7 @@ public class AddressRepository extends AbstractRepository<Address, Integer> {
     public List<Address> findAddressForPersonId(int id) throws NoQueryPossibleException {
 //        C object = null;
 ////        try (Connection connection = createConnection()) {
-////            PreparedStatement pstatement = connection.prepareStatement("SELECT * FROM " + tableName + " WHERE " + idName + " = " + id);
+////            PreparedStatement pstatement = connection.prepareStatement(select * from clientdbtest.address where client_person = 3");
 ////            ResultSet resultSet = pstatement.executeQuery();
 ////            if (resultSet.next()) {
 ////                System.out.println("in resultset");
@@ -90,7 +90,7 @@ public class AddressRepository extends AbstractRepository<Address, Integer> {
     {
         //        C object = null;
 ////        try (Connection connection = createConnection()) {
-////            PreparedStatement pstatement = connection.prepareStatement("SELECT * FROM " + tableName + " WHERE " + idName + " = " + id);
+////            PreparedStatement pstatement = connection.prepareStatement("select * from clientdbtest.address where client_firm = 1");
 ////            ResultSet resultSet = pstatement.executeQuery();
 ////            if (resultSet.next()) {
 ////                System.out.println("in resultset");
