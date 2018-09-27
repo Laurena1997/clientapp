@@ -5,6 +5,7 @@
  */
 package com.realdolmen.maven.clientrepository.services;
 
+import com.realdolmen.maven.clientrepository.domain.Address;
 import com.realdolmen.maven.clientrepository.domain.Person;
 import com.realdolmen.maven.clientrepository.domain.PostalCode;
 import com.realdolmen.maven.clientrepository.exceptions.NoQueryPossibleException;
@@ -157,11 +158,24 @@ public class PostalCodeServiceTest {
         verify(postalCodeRepository, times(1)).updateItem(postalCode);        
     }
     
-    
+    //@author Jirkas
     @Test
     public void insertPostalCodeTest() throws NoQueryPossibleException 
     {
+        Address address = new Address();
+        PostalCode postalCode = new  PostalCode();
+        List<Address> addressess = new ArrayList<>();
+       addressess.add(address);
+       
+        postalCode.setNumber(1);
+        postalCode.setCity("city");
+        when(postalCodeRepository.insertItem(postalCode)).thenReturn(1);
+        when(postalCodeRepository.findById(1)).thenReturn(postalCode);
         
+       
+        postalCodeService.insertPostalCode(postalCode);
+        verify(postalCodeRepository, times(1)).insertItem(postalCode);
+
    
     }
 }
