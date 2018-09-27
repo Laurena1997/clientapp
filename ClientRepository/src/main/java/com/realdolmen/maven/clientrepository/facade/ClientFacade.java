@@ -62,9 +62,19 @@ public class ClientFacade {
         return klant;
     }
 
-    public String findAddressessForClient(String klant)
+    public List<Address> findAddressessForClient(int id)
     {
-        return null;
+         List<Address> addresses = new ArrayList<>();
+        
+        try
+        {
+               addresses = addressService.findAllAddressForClientPerson(id);
+             
+        }
+        catch(NoQueryPossibleException ex){
+            ex.printStackTrace();
+        }
+        return addresses;
         
     }
     //findAddressesForClient(Klant klant)
