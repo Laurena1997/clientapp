@@ -71,36 +71,35 @@ public class AddressRepository extends AbstractRepository<Address, Integer> {
     }
 
     public List<Address> findAddressForPersonId(int id) throws NoQueryPossibleException {
-//        C object = null;
-////        try (Connection connection = createConnection()) {
-////            PreparedStatement pstatement = connection.prepareStatement(select * from clientdbtest.address where client_person = 3");
-////            ResultSet resultSet = pstatement.executeQuery();
-////            if (resultSet.next()) {
-////                System.out.println("in resultset");
-////                object = createObject(resultSet);
-////            }
-////        } catch (Exception e) {
-////            throw new NoQueryPossibleException("Find by id " + tableName + " can not be excecuted");
-////        }
-////        return object;
-        return null;
+          Address address = null;
+        try (Connection connection = createConnection()) {
+            PreparedStatement pstatement = connection.prepareStatement("select * from clientdbtest.address where client_person = 3");
+            ResultSet resultSet = pstatement.executeQuery();
+            if (resultSet.next()) {
+                System.out.println("in resultset");
+                address = createObject(resultSet);
+            }
+        } catch (Exception e) {
+            throw new NoQueryPossibleException("Find address for person " + address + " can not be excecuted");
+        }
+        return  (List<Address>) address;
+        
     }
     
     public List<Address>findAddressForFirm(int id) throws NoQueryPossibleException
     {
-        //        C object = null;
-////        try (Connection connection = createConnection()) {
-////            PreparedStatement pstatement = connection.prepareStatement("select * from clientdbtest.address where client_firm = 1");
-////            ResultSet resultSet = pstatement.executeQuery();
-////            if (resultSet.next()) {
-////                System.out.println("in resultset");
-////                object = createObject(resultSet);
-////            }
-////        } catch (Exception e) {
-////            throw new NoQueryPossibleException("Find by id " + tableName + " can not be excecuted");
-////        }
-////        return object;
-        return null;
+                Address address = null;
+        try (Connection connection = createConnection()) {
+            PreparedStatement pstatement = connection.prepareStatement("select * from clientdbtest.address where client_firm = 1");
+            ResultSet resultSet = pstatement.executeQuery();
+            if (resultSet.next()) {
+                System.out.println("in resultset");
+                address = createObject(resultSet);
+            }
+        } catch (Exception e) {
+            throw new NoQueryPossibleException("Find address for firm " + address + " can not be excecuted");
+        }
+        return  (List<Address>) address;
         
     }
 }
