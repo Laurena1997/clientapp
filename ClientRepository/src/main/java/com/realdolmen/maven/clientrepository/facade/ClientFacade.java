@@ -62,6 +62,11 @@ public class ClientFacade {
         return klant;
     }
 
+    public String findAddressessForClient(String klant)
+    {
+        return null;
+        
+    }
     //findAddressesForClient(Klant klant)
     //is persoon of firma
     //services

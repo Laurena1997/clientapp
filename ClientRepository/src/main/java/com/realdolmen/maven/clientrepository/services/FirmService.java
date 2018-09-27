@@ -16,13 +16,15 @@ public class FirmService {
     public List<Firm> findAll() throws NoQueryPossibleException {
         return firmRepository.findAll();
     }
+    
 
     public Firm findById(int id) throws NoQueryPossibleException {
         return firmRepository.findById(id);
     }
+    
+   
 
     public boolean removeFirm(Firm firm) throws NoQueryPossibleException {
-        //not implemented
         return firmRepository.deleteItem(firm.getNumber());
     }
 

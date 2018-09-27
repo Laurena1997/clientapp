@@ -118,11 +118,7 @@ public class FirmServiceTest {
         firmService.insertFirm(firm);
         verify(firmRepository, times(1)).insertItem(firm);
     }
-    
-    
-    
-    
-    
+        
     @Test
     public void testRemovePerson() throws NoQueryPossibleException {
         Firm firm = new Firm();

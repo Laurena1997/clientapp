@@ -29,6 +29,8 @@ public class PersonService {
         return personRepository.findById(id);
     }
     
+   
+    
     public boolean removePerson(Person person) throws NoQueryPossibleException {
         //not implemented
         return personRepository.deleteItem(person.getNumber());

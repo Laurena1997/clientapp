@@ -55,7 +55,6 @@ public class FirmRepository extends AbstractRepository<Firm, Integer>{
         return "("+TAX_ID+","+NAME+")";
     }
 
-    //TODO implement
     @Override
     public String getValuesString(Firm c) {
         return "('" + c.getTaxNumber() +"','" + c.getName() + "')";
