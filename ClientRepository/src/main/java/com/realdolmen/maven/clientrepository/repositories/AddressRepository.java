@@ -28,7 +28,7 @@ public class AddressRepository extends AbstractRepository<Address, Integer> {
         super(TABLE_NAME, KEY, url);
     }
 
-    //TODO implement
+    
     @Override
     public Address createObject(ResultSet resultSet) {
         Address address = null;
@@ -48,13 +48,13 @@ public class AddressRepository extends AbstractRepository<Address, Integer> {
         return address;
     }
 
-    //TODO implement
+    
     @Override
     public String getColumnString() {
         return "(" + TYPEADDRESS + "," + KEY + ", box, " + POSTALCODE + ", client_person  ,client_firm )";
     }
 
-    //TODO implement
+    
     @Override
     public String getValuesString(Address c) {
         if (c.getKlant() instanceof Person) {

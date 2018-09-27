@@ -36,13 +36,13 @@ public class PostalCodeRepository extends AbstractRepository<PostalCode, Integer
     }
 
 
-    //TODO implement
+   
     @Override
     public String getColumnString() {
         return "("+KEY+","+CITY+")";
     }
 
-    //TODO implement
+ 
     @Override
     public String getValuesString(PostalCode postalCode) {
         return "('"+postalCode.getNumber()+"','"+postalCode.getCity()+"')";

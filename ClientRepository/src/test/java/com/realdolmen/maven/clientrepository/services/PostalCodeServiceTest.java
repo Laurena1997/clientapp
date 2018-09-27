@@ -144,18 +144,24 @@ public class PostalCodeServiceTest {
         verify(postalCodeRepository, times(1)).deleteItem(postalCode.getNumber());        
     }
 
+    //@author Laurena
     /**
      * Test of updatePostalCode method, of class PostalCodeService.
      */
     @Test
-    public void testUpdatePostalCode() 
+    public void testUpdatePostalCode() throws NoQueryPossibleException 
     {
-        
+        PostalCode postalCode = new PostalCode();
+        postalCode.setNumber(3320);
+        postalCodeService.updatePostalCode(postalCode);
+        verify(postalCodeRepository, times(1)).updateItem(postalCode);        
     }
     
+    
     @Test
-    public void insertPostalCodeTest() throws Exception 
+    public void insertPostalCodeTest() throws NoQueryPossibleException 
     {
         
+   
     }
 }

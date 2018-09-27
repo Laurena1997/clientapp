@@ -52,7 +52,7 @@ public class PersonRepository extends AbstractRepository<Person, Integer> {
         return "(" + KEY + "," + NAME + "," + FIRST_NAME + ")";
     }
 
-    //TODO implement
+   
     @Override
     public String getValuesString(Person c) {
         return "('"  + c.getNumber() + "','" + c.getName() + "', '"+ c.getFirstName() + "')";
