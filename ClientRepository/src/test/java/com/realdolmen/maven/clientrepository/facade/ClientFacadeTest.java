@@ -5,8 +5,14 @@
  */
 package com.realdolmen.maven.clientrepository.facade;
 
+import com.realdolmen.maven.clientrepository.domain.Klant;
+import com.realdolmen.maven.clientrepository.domain.PostalCode;
+import com.realdolmen.maven.clientrepository.repositories.PersonRepository;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 /**
  *
@@ -21,14 +27,19 @@ public class ClientFacadeTest {
      * Test of getAllClients method, of class ClientFacade.
      */
     @Test
-    public void testGetAllClients() {
+    public void testGetAllClients() 
+    {
+       
     }
 
     /**
      * Test of findClientById method, of class ClientFacade.
      */
     @Test
-    public void testFindClientById() {
+    public void testFindClientById() 
+    {
+        
+        
     }
     
 }

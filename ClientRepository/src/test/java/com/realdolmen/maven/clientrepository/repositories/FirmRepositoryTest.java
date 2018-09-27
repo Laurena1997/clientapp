@@ -41,23 +41,8 @@ public class FirmRepositoryTest{
         assertNotNull(firmRepository.insertItem(firm));
         
     }
+}
     
     
-    /*@Test
-    public void deleteItemTest() throws NoQueryPossibleException{
-        firmRepository = new FirmRepository();
-        firmRepository.deleteItem(1);
-        List<Firm> firms = firmRepository.findAll();
-        for(Firm f : firms){
-            assertNotEquals(f.getNumber(),1);
-        }*/
-    }
-    
-//    private void insertFirm(){
-//        Firm firm = new Firm();
-//        firm.setNumber(100);
-//        firm.setName("nv to remove");
-//        firmRepository.insertItem(firm);
-//    }
-//    
+
 

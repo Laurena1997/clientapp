@@ -158,7 +158,7 @@ public class PostalCodeServiceTest {
         verify(postalCodeRepository, times(1)).updateItem(postalCode);        
     }
     
-    //@author Jirkas
+    //@author Jirka
     @Test
     public void insertPostalCodeTest() throws NoQueryPossibleException 
     {
